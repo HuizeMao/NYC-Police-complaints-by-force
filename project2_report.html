@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Assignment 4</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>Huize Mao</strong> — <em>h2mao@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: Substantiated complaints of police use of force show a significant upward trend over time.</h2>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+
+        <figure>
+          <img src="substantiated_force_complaints_over_time.png" alt="" />
+          <figcaption>Figure 1: Substantiated complaints involving police use of force, showing a sharp rise before 2014. </figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+<ul>
+  <li><strong>Truncating the data at 2014</strong> — I cut the data off at 2014 because that's right when the number of substantiated force complaints peaked. It made the increase look way stronger and avoided showing the decline that happens after.  
+  <br><strong>Score:</strong> -2 (Deceptive)</li>
+
+  <li><strong>Narrowing the y-axis range</strong> — I zoomed in the y-axis to be tight around the data so even small changes between years looked bigger. If I had kept the full y-axis range, the trend would have looked pretty flat and boring. This tweak made the line feel way steeper without technically lying.  
+  <br><strong>Score:</strong> -1.5 (Deceptive)</li>
+
+  <li><strong>Using a line chart with markers</strong> — I picked a simple line chart with dots at each year because it's super easy to read. It lets the viewer quickly follow the rise over time.
+  <br><strong>Score:</strong> +1 (Earnest)</li>
+
+  <li><strong>Ignoring the context of the force complaints compared to other complaints</strong> — The absolute numbers might not reflect the proportion of how the trend is (i.e., it could be the overall complaints is getting higher), thus, ignoring the context of complaints of force compared to other types of complaints is a subtle deception. 
+  <br><strong>Score:</strong> -1 (Slightly Deceptive)</li>
+</ul>
+
+      </section>
+
+      <section>
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img src="force_proportion_decline_over_time.png" alt="" />
+          <figcaption>BRIEF CAPTION HERE.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li><strong>Using the full timeline</strong> — I kept the full timeline in the graph so that viewers could see the whole story instead of just part of it.  
+          <br><strong>Score:</strong> +2 (Earnest)</li>
+
+          <li><strong>Plotting the proportion of force complaints</strong> — Instead of just showing the number of substantiated force complaints, I plotted the proportion compared to all substantiated complaints. It gave better context and made it clearer that "Force" was becoming a smaller part of the bigger picture over time.  
+          <br><strong>Score:</strong> +2 (Earnest)</li>
+
+          <li><strong>Slightly zooming the y-axis</strong> — I tightened the y-axis around the data so the downward slope would look a little sharper. It doesn’t change the data, but it definitely makes the decline feel more dramatic at first glance.  
+          <br><strong>Score:</strong> -1 (Mildly Deceptive)</li>
+
+          <li><strong>Framing the title in a persuasive way</strong> — I used a title like "Fewer Complaints Involve Use of Force" instead of something totally neutral. It helps push the idea that the decline is a positive trend without being super obvious about it.  
+          <br><strong>Score:</strong> -0.5 (Slightly Deceptive)</li>
+
+          <li><strong>Adding an annotation to highlight the lowest point</strong> — I added a little note and an arrow pointing at the lowest year for force complaints.  
+          <br><strong>Score:</strong> +1 (Earnest)</li>
+        </ul>
+
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>[WRITE FINAL REFLECTION PARAGRAPHS HERE.]</p>
+      </section>
+    </main>
+  </body>
+</html>
